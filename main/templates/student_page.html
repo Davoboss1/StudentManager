@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+ <section >
+     <h4 class="text-center" style="padding-top: 5%;">Welcome {{student.Full_name}}</h4>
+    <h5 class="text-center">These are the courses you are offering</h5>
+    <ul class="text-center" style="list-style-type: none; ">
+        {% for course in student.courses.all %}
+        <li style="outline: rgb(56, 0, 0) dotted 1px; padding: 10px 0; margin-right: 5%; margin-bottom: 5px;">{{course.Course_title}}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

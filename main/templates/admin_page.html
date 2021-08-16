@@ -1,0 +1,120 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <h3 style="padding-top: 20px; padding-left: 20px;">Welcome Administrator.</h3>
+    <div class="actions-tab">
+        <span data-target="#create-students-tab" class="active">Create Students</span>
+        <span data-target="#delete-students-tab">Delete Students</span>
+        <span data-target="#create-courses-tab">Create Courses</span>
+        <span data-target="#assign-courses-tab">Assign Courses</span>
+        <span data-target="#delete-courses-tab">Delete Courses</span>
+    </div>
+    <div id="actions-tab-body">
+        <div id="create-students-tab" class="active-tab">
+            <form id="student-form">
+                <label>
+                    <h3>Enter student information</h3>
+                </label>
+                <label>
+                    <h3>Full Name</h3>
+                </label>
+                <input class="form-input" type="text" name="fullname" required>
+                <label>
+                    <h3>Username</h3>
+                </label>
+                <input class="form-input" type="text" name="username" required>
+                <label>
+                    <h3>Password</h3>
+                </label>
+                <input class="form-input" type="password" name="password" required>
+                <input class="red-btn" type="submit">
+                <h5 id="form-status"></h5>
+            </form>
+        </div>
+
+        <div id="delete-students-tab">
+            <ul style="list-style-type: none; margin-right: 50px;">
+                {% for student in students %}
+                <li class="delete-list">
+                    <h4>
+                        {{student.Full_name}}
+                    </h4>
+                    <button class="red-btn student-delete-btn" data-pk="{{student.pk}}">
+                        Delete
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div id="create-courses-tab">
+            <label>
+                <h3>Create new course</h3>
+            </label>
+            <input class="form-input" type="text">
+            <button class="red-btn" id="create-courses-btn">Create</button>
+            <h5>List of available courses</h5>
+            <ul>
+                {% for course in courses %}
+                <li>
+                    {{course.Course_title}}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="assign-courses-tab">
+            <label>
+                <h3>Select student</h3>
+            </label>
+            <select class="form-input" id="student-select">
+                <option value="" disabled selected>
+                    Select Students
+                </option>
+                {% for student in students %}
+                <option value="{{student.pk}}">
+                    {{student.Full_name}}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>
+                <h3>Select courses</h3>
+            </label>
+            <select id="courses-select" class="form-input" style="height: 200px;" multiple>
+                <option disabled value="">
+                    Select courses
+                </option>
+                {% for course in courses %}
+                <option value="{{course.pk}}">
+                    {{course.Course_title}}
+                </option>
+                {% endfor %}
+            </select>
+            <br>
+            <button class="red-btn" id="assign-courses-btn">
+                Submit
+            </button>
+        </div>
+
+        <div id="delete-courses-tab">
+            <ul style="list-style-type: none; margin-right: 50px;">
+                {% for course in courses %}
+                <li class="delete-list">
+                    <h4>
+                        {{course.Course_title}}
+                    </h4>
+                    <button class="red-btn course-delete-btn" data-pk="{{course.pk}}">
+                        Delete
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+</section>
+
+{% endblock %}

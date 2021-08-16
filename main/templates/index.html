@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <div id="mainContainer">
+            <header>
+                <a href="{% url 'home' %}"><h3 class="head-text">Student Manager</h3></a>
+            </header>
+            {% block content %}
+            <section>
+                <form method="POST">
+                    {% csrf_token %}
+                    <h3 class="text-center">Please Login </h3>
+                    <label>
+                        <h3>Login as?</h3>
+                    </label>
+                    <select class="form-input" name="type" required>
+                        <option >
+                            Admin
+                        </option>
+                        <option >
+                            Student
+                        </option>
+                        
+                    </select>
+                    <label>
+                        <h3>Username</h3>
+                    </label>
+                    <input class="form-input" type="text"  name="username" required>
+                    <label>
+                        <h3>Password</h3>
+                    </label>
+                    <input class="form-input" type="password" name="password" required>
+                    <input class="red-btn" type="submit">
+                </form>
+                {{messages|safe}}
+                <h5 class="text-center">
+                    <a href="{% url 'register' %}">Admin register here.</a>
+                </h5>
+            </section>
+            {% endblock %}
+            
+        </div>
+        <footer>
+            <h4 class="head-text">Designed by</h4>
+            <h6 class="head-text">David Akinfenwa</h6>
+        </footer>
+    <script>
+        var csrf_token = "{{csrf_token}}";
+    </script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html>

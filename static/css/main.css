@@ -1,0 +1,112 @@
+body{
+    background-color: #e0e0e0;
+    margin: 50px 0 0 0;
+    padding: 0;
+}
+
+
+#mainContainer{
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 0;
+    padding-bottom: 1px;
+    background-color: white;
+    min-height: 100vh;
+    box-shadow: 5px 0 5px rgb(194, 194, 194), -5px 0 5px rgb(161, 161, 161);
+}
+
+header{
+    position: fixed;
+    background: linear-gradient(rgb(109, 1, 1),rgb(160, 0, 0));
+    height: 50px;
+    max-width: 800px;
+    width: 100%;
+    top: 0;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.head-text{
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+}
+
+footer{
+    width: 100%;
+    max-width: 800px;
+    background: linear-gradient(rgb(109, 1, 1),rgb(160, 0, 0));
+    height: 80px;
+    padding-top: 1px;
+    position: relative;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.form-input{
+    height: 35px;
+    width: 80%;
+    max-width: 400px;
+    outline: rgb(122, 122, 122) auto 1px;
+    font-size: 17px;
+}
+
+.form-input:hover{
+    outline: rgb(116, 0, 0) auto 2px;
+}
+
+.red-btn{
+    margin-top: 15px;
+    background-color: rgb(122, 0, 0);
+    color: white;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.actions-tab{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: rgb(165, 165, 165);
+    min-width: 200px;
+    overflow-x: auto;
+    cursor: pointer;
+}
+
+.actions-tab span{
+    color: white;
+    padding: 20px 10px;
+}
+
+.actions-tab span.active{
+    background: rgb(129, 0, 0);
+}
+
+#actions-tab-body div:not(.active-tab){
+    display: none;
+}
+
+.active-tab{
+    display: block;
+}
+
+.delete-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+#create-courses-tab, #assign-courses-tab{
+    margin-left: 5%;
+}
+

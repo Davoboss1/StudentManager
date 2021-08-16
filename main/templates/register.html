@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+            <section>
+                <form method="POST">
+                    {% csrf_token %}
+                    <h3 class="text-center">Admin Registration </h3>
+                    <label>
+                        <h3>Full Name</h3>
+                    </label>
+                    <input class="form-input" type="text" name="full_name" required>
+                    <label>
+                        <h3>School</h3>
+                    </label>
+                    <input class="form-input" type="text" name="school" required>
+                    <label>
+                        <h3>Username</h3>
+                    </label>
+                    <input class="form-input" type="text" name="user_name" required>
+                    <label>
+                        <h3>Password</h3>
+                    </label>
+                    <input class="form-input" type="password" name="password" required>
+                    <input class="red-btn" type="submit">
+                </form>
+                {{messages|safe}}
+            </section>
+            {% endblock %}
