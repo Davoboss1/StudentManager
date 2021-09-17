@@ -16,3 +16,4 @@ This is a project that lets an admin create students profile and courses and ass
 
 The backend technology was selected because Django lets you build dynamic web applications rapidly and easily, and it also contains all server side feature i might need, which makes it a good choice.
 
+Live demo available at http://studentmanager.pythonanywhere.com
